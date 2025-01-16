@@ -1,0 +1,65 @@
+<div id="shelf-scroll">
+	<div class="shelf-top">
+		<div class="shelf-head-wrap">
+			<div class="shelf-header">
+				<h1 class="baskervville-regular">Books I Want To Read</h1>
+					<p><i>View books you're interested in reading but haven't gotten to yet.
+						Click on the pencil to edit an entry and to view more details about each book.</i></p>
+			</div>
+			
+		</div>
+		<div class="flex-only">
+			<div class="search-wrap">
+				<label>Search </label><input type="text" ng-model="searchValue">
+			</div>
+			<div class="shelf-top-wrap">
+				<button  ng-click="getAllTbrBooks()" class="action-button">Refresh</button>
+				<button ng-click="goToCreateTbrView()" class="action-button">Add To TBR</button>
+			</div>
+		</div>
+	</div>
+	<div class="table-wrap-tbr">
+		<table>
+			<thead >
+				<tr class="exclude-header">
+					<!-- <th>Book ID</th> -->
+					<th ng-click="orderByColumn('title')">Title <button class="table-filter">▼</button></th>
+					<th ng-click="orderByColumn('author')">Author <button class="table-filter">▼</button></th>
+					<th ng-click="orderByColumn('releaseYear')">Release Year <button class="table-filter">▼</button></th>
+					<th>Format</th>
+					<th ng-click="orderByColumn('pageCount')">Page Count <button class="table-filter">▼</button></th>
+					<th>Audiobook Available</th>
+					<th>Age Rating</th>		
+					<th>Number in Series</th>		
+					<th colspan="3">Keywords</th>
+					<th colspan="5">Hashtags</th>
+					<th ng-click="orderByColumn('totalScore')">Interest Score <button class="table-filter">▼</button></th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tbrBooks in tbrBooks | filter:searchValue | orderBy:orderByValue:reverse">
+					<!-- <td>{{tbrBooks.id}}</td> -->
+					<td>{{tbrBooks.title}}</td>
+					<td>{{tbrBooks.author}}</td>
+					<td>{{tbrBooks.releaseYear}}</td>
+					<td>{{tbrBooks.bookFormat}}</td>
+					<td>{{tbrBooks.pageCount}}</td>
+					<td>{{tbrBooks.audioBook}}</td>
+					<td>{{tbrBooks.ageRating}}</td>
+					<td>{{tbrBooks.seriesNumber}}</td>		
+					<td>{{tbrBooks.keyword1}}</td>
+					<td>{{tbrBooks.keyword2}}</td>			
+					<td>{{tbrBooks.keyword3}}</td>
+					<td>{{tbrBooks.hashtag1}}</td>
+					<td>{{tbrBooks.hashtag2}}</td>
+					<td>{{tbrBooks.hashtag3}}</td>
+					<td>{{tbrBooks.hashtag4}}</td>
+					<td>{{tbrBooks.hashtag5}}</td>
+					<td>{{tbrBooks.totalScore}}</td>
+					<td><button ng-click="goToUpdateTbrView(tbrBooks.id)" class="edit-button">✎</button></td>
+				</tr>
+			</tbody>		
+		</table>	
+	</div>
+</div>

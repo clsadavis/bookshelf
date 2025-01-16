@@ -1,0 +1,15 @@
+<h2>update hashtags</h2>
+<div class="formWrapperCreate">
+    <div class="hashTable">
+        <div class="button-box" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
+            <button class="tag-button" 
+            ng-repeat="hashtag in hashtags | filter:searchValue" 
+            ng-click="selectHashtag(hashtag.hashtagName)" 
+            ng-class="{'selected': hashtag.selected}"
+            draggable="true" ondragstart="drag(event)" id="{{hashtag.hashtagName}}"
+            >{{hashtag.hashtagName}}</button>
+        </div>  
+    </div>
+
+</div>
+

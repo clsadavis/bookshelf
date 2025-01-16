@@ -1,0 +1,336 @@
+:root{
+    --green: #72B01D;
+    --reseda-green: #7A8450;
+    --snow: #F7F0F0;
+    --jet-black: #9f9da0;
+    --white: #f2f4ff;
+    --panel-lines: #c5baaf;
+    --font: #39382c;
+    --book-1: #ebcfb2;
+    --book-2: #CBA135;
+    --book-3: #a59354;
+    --shadow: #302f26;
+    --letter-accent: #B28D2E;
+    --backup: #c5baaf;
+    --book-2-darker: #644c0f;
+    --book-2-lighter: #d1af59;
+    --accent-blue-dark: #59656F;
+    --accent-blue-light: #2660A4;
+    --raisin-black: #2D2D34;
+    --accent-green: #3B5249;
+    --red: #6F1A07;
+    --hot-pink: #FC60A8;
+    --lavender-web: #d9ddeb;
+    --font-light: #dddada;
+}
+/*
+===========CONTAINERS============
+*/
+
+.outer-quiz{
+    width: 98%;
+    /* border: solid blue; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-quiz{
+    display: flex;
+    height: 89%;
+    width: 98%;
+    /* border: solid purple; */
+    background-color: var(white);
+    /* padding-top: 1em; */
+    align-items: center;
+    justify-content: center;
+    color: var(--font);
+}
+
+.quiz__inner {
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+    /* border: solid pink; */
+}
+
+.quiz__step {
+    text-align: center;
+}
+
+.nav-wrap{
+    justify-content: center;
+    width: 98%;
+    /* border: solid teal; */
+    display: flex;
+}
+
+.navigation {
+    align-items: center;
+    display: flex;
+    /* border: solid orange; */
+    height: 20%;
+    width: 60%;
+    justify-content: center;
+    /* padding-top: 0.5em; */
+}
+/*
+============PROGRESS BAR============
+*/
+.progress-container{
+    display: flex;
+    width: 98%;
+    /* border: dotted lime; */
+    justify-content: center;
+    /* padding-top: 0.5em; */
+}
+
+.progress {
+    width: 45%;
+    height: 1em;
+    border-radius: 5px;
+    background-color: var(--white);
+    /* border: solid black; */
+}
+
+.progress__inner {
+    top: 0;
+    border-radius: 5px;
+    height: 100%;
+    left: 0;
+    width: 0%;
+    background-color: var(--reseda-green);
+    transition:.4s width linear;
+    /* border: dotted yellow; */
+}
+
+/*
+============ARROWS============
+*/
+
+.quiz-arrows{
+    display: flex;
+    justify-content: center;
+}
+
+.navigation__btn path{
+  fill: var(--raisin-black);
+}
+
+.navigation__btn {
+    display: flex;
+    align-items: center;
+    width: 4em;
+    border: 1px solid var(--raisin-black);
+    justify-content: center;
+    height: 3em;
+}
+
+.navigation__btn--left{
+    border-top-left-radius:6px;
+    border-bottom-left-radius:6px
+}
+
+.navigation__btn--right{
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px
+}
+
+.navigation__btn--disabled {
+    opacity: 0.4;
+}
+
+.navigation__btn:hover{
+    background-color: var(--book-3);
+}
+
+
+.flower-pic{
+    height: 13em;
+    width: 13em;
+    border-radius: 5px;
+    object-fit: cover;
+    /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+}
+
+.sunflower{
+    object-position: 35% 100%;
+}
+
+
+/*
+==========QUESTION STYLING============
+*/
+
+.question__emoji{
+    font-size: 2em;
+    display: inline-block;
+}
+
+.quiz__question{
+    font-weight: 900;
+    letter-spacing:1px;
+    margin-top: 0;
+    font-size: 30px;
+    margin-bottom: 0.5em;
+}
+
+.emoji-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+==========QUESTION RESPONSIVE============
+*/
+
+
+/*
+==========ANSWER STYLING============
+*/
+.answer:first-of-type{
+  margin-right: 0.5em;
+}
+
+.answer__input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    outline:none !important;
+}
+
+.flower-answer__input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    outline:none !important;
+}
+
+.answer__label {
+    width: 12em;
+    border: 1px solid var(--book-2-lighter);
+    display: inline-block;
+    border-radius: 6px;
+    padding-left: 15%;
+    line-height: 4em;
+    font-size: 1em;
+    color: var(--book-2-lighter);
+    font-weight: 600;
+}
+
+.flower-answer__label {
+    width: 14em;
+    border: 1px solid var(--book-2-lighter);
+    display: inline-block;
+    border-radius: 6px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    padding-bottom: 3%;
+    color: var(--book-2-lighter);
+}
+
+.tick-mark{
+    height: 18px;
+    width: 18px;
+}
+.answer__tick {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5%;
+    line-height: 14px;
+    border-radius: 50%;
+    padding: 1px;
+    opacity:0;
+    visibility: hidden;
+    /*Remove comment if using the svg and path for the tick mark instead
+    of the actual image*/
+    /*background-color: var(--book-2);*/
+}
+
+.answer {
+    display: inline-block;
+    margin-right:10px;
+    margin: 1em;
+}
+
+.flower-answer {
+    display: inline-block;
+    margin-right:10px;
+    margin: 2em;
+}
+
+
+.answer__input:checked + .answer__label{
+  border-color:var(--book-2-lighter);
+  color: var(--book-2-darker);
+  box-shadow: 0px 0px 1px 4px rgba(218, 168, 43, 0.2)
+}
+
+.flower-answer__input:checked + .flower-answer__label{
+    border-color:var(--book-2-lighter);
+    color: var(--book-2-darker);
+    box-shadow: 0px 0px 1px 4px rgba(218, 168, 43, 0.2)
+}
+
+.flower-answer__input:checked + .flower-answer__label .answer__tick{
+  opacity:1;
+  visibility:visible;
+}
+
+.answer__input:checked + .answer__label .answer__tick{
+    opacity:1;
+    visibility:visible;
+}
+
+
+.answer__tick path{
+  fill:#fff
+}
+
+
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-recommendation{
+    width: 60em;
+    height: 40em;
+    display: flex;
+}
+
+.rec-wrap{
+    margin: 2em;
+    border: dashed var(--font);
+    border-radius: 5px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--font-light);
+}
+
+.book-rec-cover{
+    width: 20em;
+    height: 25em;
+}
+
+.summary-wrap{
+    display: flex;
+    width: 60%;
+}
+
+.rec-summary{
+
+    margin: 2em;
+}

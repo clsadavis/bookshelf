@@ -1,0 +1,517 @@
+:root{
+    --green: #72B01D;
+    --reseda-green: #7A8450;
+    --snow: #F7F0F0;
+    --jet-black: #9f9da0;
+    --white: #f2f4ff;
+    --panel-lines: #c5baaf;
+    --font: #39382c;
+    --book-1: #ebcfb2;
+    --book-2: #CBA135;
+    --book-3: #a59354;
+    --shadow: #302f26;
+    --letter-accent: #B28D2E;
+    --backup: #c5baaf;
+}
+
+html{
+    scroll-behavior: smooth;
+    background: var(--white);
+    overflow: auto;
+}
+
+
+body{
+    box-sizing: border-box;
+    height: 97%;
+    background-color: var(--white);
+}
+
+.top-panel-book{
+    width: 99%;
+    height: 6vh;
+    border-bottom: solid var(--panel-lines) 1px;
+    display: flex;
+    padding: 0.5em;
+}
+
+.menu-font{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--letter-accent);
+    font-size: 1.25em;
+}
+
+.drop-button{
+    background-color: var(--white);
+    color: var(--letter-accent);
+    text-transform: uppercase;
+    padding: 16px;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.drop-contents{
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-contents a{
+    color: var(--letter-accent);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.25em;
+    text-transform: uppercase;
+}
+
+.drop-contents a:hover{
+    background-color: var(--shadow);
+}
+
+.dropdown:hover .drop-contents{
+    display: block;
+}
+
+.navi-logo{
+    height: 100%;
+    width: 8%;
+    border-right: solid var(--panel-lines) 1px;
+}
+
+#home-logo{
+    width: 3.5%;
+    position: absolute;
+    left: 2.75%;
+    top: 1.75%;
+}
+
+.navi-shelf{
+    height: 100%;
+    border-right: solid var(--panel-lines) 1px;
+    width: 15%;
+    text-align: center;
+}
+
+.navi-quiz{
+    height: 100%;
+    width: 9%;
+    border-right: solid var(--panel-lines) 1px;
+    text-align: center;
+}
+
+.navi-spacer{
+    width: 47%;
+}
+
+.navi-stack{
+    height: 100%;
+    border-right: solid var(--panel-lines) 1px;
+    border-left: solid var(--panel-lines) 1px;
+    width: 11%;
+    text-align: center;
+}
+
+.navi-resume{
+    height: 100%;
+    text-align: center;
+    width: 11%;
+}
+
+.main-book{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+.book-1{
+    height: 75%;
+    width: 5vw;
+    background-color: var(--book-1);
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    transform: skew(-10deg, 10deg);
+}
+
+.book-text-1{
+   transform: rotate(-90deg);
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 2em;
+   color: var(--font);
+
+}
+
+.book-1-shadow{
+    height: 73%;
+    width: 1vw;
+    background-color: var(--shadow);
+    position: absolute;
+    bottom: 0;
+    right: 24%;
+    transform: skew(-10deg, 10deg);
+}
+
+.book-wrap{
+    height: 100%;
+    text-align: center;
+    padding-top: 20em;
+}
+
+.book-2{
+    height: 83%;
+    width: 5vw;
+    background-color: var(--book-2);
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    transform: skew(-4deg, 4deg);
+}
+
+.book-text-2{
+    transform: rotate(-90deg);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: var(--font);
+}
+
+.book-2-shadow{
+    height: 81%;
+    width: 1vw;
+    background-color: var(--shadow);
+    position: absolute;
+    bottom: 0;
+    right: 14%;
+    transform: skew(-4deg, 4deg);
+    border-left: 1.5px solid var(--shadow);
+}
+
+.book-3{
+    height: 87%;
+    width: 5vw;
+    background-color: var(--book-3);
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    transform: skew(-2deg, 2deg);
+}
+
+.book-text-3{
+    transform: rotate(-90deg);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: var(--font);
+}
+
+.book-3-shadow{
+    height: 85%;
+    width: 1vw;
+    background-color: var(--shadow);
+    position: absolute;
+    bottom: 0;
+    right: 4%;
+    transform: skew(-2deg, 2deg);
+    border-left: 1.5px solid var(--shadow);
+}
+
+.page-title{
+    font-size: 9em;
+    line-height: 25%;
+}
+
+.letter-logo{
+    color: var(--letter-accent);
+}
+
+
+
+.title-logo{
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    top: 5%;
+    color: var(--font);
+}
+
+
+.playfair-display-styling {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.familjen-grotesk-styling {
+  font-family: "Familjen Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.load-text{
+    position: absolute; 
+    width: 60%;
+    top: 55%;
+    left: 13%;
+    font-size: 1.25em;
+}
+
+.title-logo:hover{
+
+}
+
+table, th, td{
+    border: solid var(--panel-lines) 1px;
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 15px;
+}
+
+tr:hover{
+    background-color: var(--book-3);
+}
+
+
+/*
+==========POTENTIALLY DELETEABLE BELOW THIS LINE=========================
+*/
+
+.dropbtn{
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: purple;
+    min-width: 16px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a{
+    color: gray;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover{
+    background-color: yellow;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown:hover .dropbtn{
+    background-color: cyan;
+}
+
+/*
+==========POTENTIALLY DELETEABLE ABOVE THIS LINE=========================
+*/
+
+.warning-display{
+    color: red;
+    font-size: 0.75em;
+    display: flex;
+    padding: 0.5em;
+}
+
+.warning-box{
+    border: solid blue;
+}
+
+.update-book-form{
+    padding: 1em;
+
+}
+
+.form-options{
+    padding: 0.25em;
+}
+
+.form-container{
+    border: solid black;
+    width: 20%;
+    
+}
+
+.update-image{
+    position: absolute;
+    right: 2%;
+    top: 15%;
+}
+
+
+.createForm{
+    width: 30%;
+}
+
+.hashTable{
+    width: 40%;
+}
+
+.formWrapperCreate{
+    display: flex;
+}
+
+
+@media (max-width: 1086px){
+    .book-1{
+        height: 75%;
+        width: 5vw;
+        background-color: var(--book-1);
+        position: absolute;
+        bottom: 0;
+        right: 25%;
+        transform: skew(-5deg, 5deg);
+    } 
+
+    .book-1-shadow{
+        height: 73%;
+        width: 1vw;
+        background-color: var(--shadow);
+        position: absolute;
+        bottom: 0;
+        right: 24%;
+        transform: skew(-5deg, 5deg);
+    }
+
+    #home-logo{
+        width: 3.5%;
+        position: absolute;
+        left: 2.75%;
+        top: 3.5%;
+    }
+
+
+    
+}
+
+@media (max-width: 905px){
+    .book-1{
+        height: 0%;
+    } 
+
+    .book-1-shadow{
+        height: 0%;
+    } 
+
+    .top-panel-book{
+        width: 99%;
+        height: 6vh;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .navi-logo{
+        height: 100%;
+        width: 8%;
+        border-right: none;
+    }
+    
+    #home-logo{
+        width: 3.5%;
+        position: absolute;
+        left: 2.75%;
+        top: 1.75%;
+    }
+    
+    .navi-quiz{
+        height: 100%;
+        width: 8%;
+        border-right: none;
+        text-align: center;
+    }
+    
+    .navi-shelf{
+        height: 100%;
+        border-right: none;
+        width: 10%;
+        text-align: center;
+    }
+    
+    .navi-about{
+        height: 100%;
+        border-right: none;
+        width: 20%;
+    }
+    
+    .navi-spacer{
+        height: 100%;
+        width: 30%;
+    }
+
+    .menu-font{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--letter-accent);
+        font-size: 1.25em;
+    }
+
+    .book-2{
+        height: 0%;
+    }
+    
+    .book-2-shadow{
+        height: 0%;
+    }
+    
+    .book-3{
+        height: 0%;
+    }
+
+    .book-3-shadow{
+        height: 0%;
+    }
+
+    .title-logo{
+        width: 45%;
+        position: absolute;
+        left: 20%;
+        top: 5%;
+        color: var(--font);
+        border: solid lime;
+    }
+
+    .page-title{
+        font-size: 5em;
+        line-height: 15%;
+    }
+
+    .collapse-panel{
+        height: 100%;
+        width: 5%;
+        border: solid black;
+    }
+
+}
+

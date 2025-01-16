@@ -1,0 +1,355 @@
+
+<div class="create-book">	
+	<div>
+		<div class="formWrapperCreate">		
+			<div class="createForm">
+                <div>
+                    <h1 class="baskervville-regular">Shelve A Book <br>to my Bookshelf</h1>
+                    <p>Fill out all the fields below to add a new book to your shelf.</p>
+                    <p><i>Want to add a book to your TBR? <a href="#!createTbr">Click here.</a></i></p>
+                    <h5 ng-bind="createStatus"></h5>
+                </div>	
+                <form name="createForm">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input ng-model="book.title" required ng-minlength="1" name="title"
+                            type="text" id="title" placeholder="Type here">					
+                        <span ng-show="createForm.title.$touched && createForm.title.$invalid"
+                            class="warning-display">
+                            <i>1 Character Required</i>
+                        </span>					
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input ng-model="book.author" required name="author"
+                            ng-model="book.author" id="author" type="text">
+                    </input>
+                        <span ng-show="createForm.author.$touched && createForm.author.$invalid"
+                            class="warning-display">
+                            <i>Required</i>
+                        </span>	
+                    </div>
+                    <div class="form-group">
+                        <label for="starRating">Star Rating:</label>
+                        <input ng-model="book.starRating" required ng-minlength="1"
+                            type="text" id="starRating" name="starRating" placeholder="Out of 5">
+                        <span class="warning-display" ng-show="createForm.starRating.$touched && createForm.starRating.$invalid" >
+                            <i>1 characters required</i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="publisher">Publisher:</label>
+                        <input ng-model="book.publisher" required ng-minlength="1"
+                            type="text" id="publisher" name="publisher" placeholder="Type here">
+                        <span class="warning-display" ng-show="createForm.publisher.$touched && createForm.publisher.$invalid" >
+                            <i>1 characters required</i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateRead">Date Read:</label>
+                        <input ng-model="book.dateRead" required ng-minlength="1" max="2030" min="1900"
+                            type="number" id="dateRead" name="dateRead">
+                        <span class="warning-display" ng-show="createForm.dateRead.$touched && createForm.dateRead.$invalid" >
+                            <i>1 characters required</i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="releaseYear">Release Year:</label>
+                        <input ng-model="book.releaseYear" max="2030" min="1000" required 
+                        type="number" id="releaseYear"  name="releaseYear">
+                    </input>
+                        <span ng-show="createForm.releaseYear.$touched && createForm.releaseYear.$invalid"
+                            class="warning-display">
+                            <i>Required</i>
+                        </span>	
+                    </div>
+                    <div class="form-group">
+                        <label for="bookFormat">Format:</label>
+                        <select ng-model="book.bookFormat"  id="bookFormat" required name="bookFormat">
+                            <option ng-repeat="bookFormat in bookFormats">{{bookFormat}}</option>
+                        </select>
+                        <span ng-show="createForm.bookFormat.$touched && createForm.bookFormat.$invalid"
+                            class="warning-display">
+                            <i>Required</i>
+                        </span>	
+                    </div>
+                    <div class="form-group">
+                        <label for="pageCount">Page Count:</label>
+                        <input ng-model="book.pageCount" max="10000" min="1" required
+                            type="number" id="pageCount" name="pageCount" 
+                            placeholder="select">
+                            <span class="warning-display" ng-show="createForm.pageCount.$touched && createForm.pageCount.$invalid">
+                                Must be between 1 and 10,000
+                            </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="audioBook">AudioBook Available:</label>
+                        <select ng-model="book.audioBook" id="audioBook" name="audioBook" required>
+                            <option ng-repeat="audioBook in audioBooks">{{audioBook}}</option>
+                        </select>
+                        <span class="warning-display" ng-show="createForm.audioBook.$touched && createForm.audioBook.$invalid">
+                            Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="ageRating">Age Rating:</label>
+                        <select ng-model="book.ageRating" id="ageRating" required name="ageRating">
+                            <option ng-repeat="ageRating in ageRatings">{{ageRating}}</option>
+                        </select>
+                        <span class="warning-display" ng-show="createForm.ageRating.$touched && createForm.ageRating.$invalid">
+                            Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="seriesNumber">Number in Series:</label>
+                        <input ng-model="book.seriesNumber" 
+                            type="text" id="seriesNumber" name="seriesNumber" required
+                            placeholder="n/a if not applicable">
+                            <span class="warning-display" ng-show="createForm.seriesNumber.$touched && createForm.seriesNumber.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="keyword1">Main Keyword:</label>
+                        <select ng-model="book.keyword1" id="keyword1" required name="keyword1"> 
+                            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+                        </select>
+                        <span class="warning-display" ng-show="createForm.keyword1.$touched && createForm.keyword1.$invalid">
+                            Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="keyword2">Second Keyword:</label>
+                        <select ng-model="book.keyword2" id="keyword2" required name="keyword2"> 
+                            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+                        </select>
+                        <span class="warning-display" ng-show="createForm.keyword2.$touched && createForm.keyword2.$invalid">
+                            Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="keyword3">Third Keyword:</label>
+                        <select ng-model="book.keyword3" id="keyword3" required name="keyword3"> 
+                            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+                        </select>
+                        <span class="warning-display" ng-show="createForm.keyword3.$touched && createForm.keyword3.$invalid">
+                            Required
+                        </span>
+                    </div>
+                    <div class="button-wrap">
+                        <div class="button-container">
+                            <button type="button" class="call-to-action" ng-disabled="createForm.$invalid || disableCreate"
+                            ng-click="createBook()">Create</button>			
+                            <button type="button" class="call-to-action"
+                            ng-click="clear()">Clear</button>
+                            <button type="button" class="call-to-action" ng-click="goToShelfView()">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+		    </div>
+            <div class="hashTable">
+                <span> Select up to 5 hashtags</span>
+                <div class="hashSelectFive">
+                    <div class="form-hash">
+                        <label for="hashtag1">1:</label>
+                        <input ng-model="book.hashtag1" 
+                            type="text" id="hashtag1" name="hashtag1" required ng-click="setHashtag1(hashtag)">
+                            <span class="warning-display" ng-show="createForm.hashtag1.$touched && createForm.hashtag1.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <label for="hashtag2">2:</label>
+                        <input ng-model="book.hashtag2" 
+                            type="text" id="hashtag2" name="hashtag2" required>
+                            <span class="warning-display" ng-show="createForm.hashtag2.$touched && createForm.hashtag2.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <label for="hashtag3">3:</label>
+                        <input ng-model="book.hashtag3" 
+                            type="text" id="hashtag3" name="hashtag3" required>
+                            <span class="warning-display" ng-show="createForm.hashtag3.$touched && createForm.hashtag3.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <label for="hashtag4">4:</label>
+                        <input ng-model="book.hashtag4" 
+                            type="text" id="hashtag4" name="hashtag4" required>
+                            <span class="warning-display" ng-show="createForm.hashtag4.$touched && createForm.hashtag4.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <label for="hashtag5">5:</label>
+                        <input ng-model="book.hashtag5" 
+                            type="text" id="hashtag5" name="hashtag5" required>
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag5.$touched && createForm.hashtag5.$invalid" 
+                            ondrop="drop(event)" ondragover="allowDrop(event)">
+                                Required
+                            </span>
+                    </div>
+                </div>
+                
+                <div class="temp-div">
+                    <div class="form-hash">
+                        <div ng-model="book.hashtag1" class="hash-box"
+                            id="hashtag1" name="hashtag1" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag1.$touched && createForm.hashtag1.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <div ng-model="book.hashtag2" class="hash-box"
+                            id="hashtag2" name="hashtag2" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag2.$touched && createForm.hashtag2.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <div ng-model="book.hashtag3"  class="hash-box"
+                            id="hashtag3" name="hashtag3" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag3.$touched && createForm.hashtag3.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <div ng-model="book.hashtag4" class="hash-box"
+                            id="hashtag4" name="hashtag6" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag4.$touched && createForm.hashtag4.$invalid">
+                                Required
+                            </span>
+                    </div>
+                    <div class="form-hash">
+                        <div ng-model="book.hashtag5" class="hash-box"
+                            id="hashtag5" name="hashtag5" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+                            <span class="warning-display" 
+                            ng-show="createForm.hashtag5.$touched && createForm.hashtag5.$invalid">
+                                Required
+                            </span>
+                    </div>
+                </div>
+            
+                <input type="text" 
+                    placeholder="Search for hashtags..." ng-model="searchValue">
+                <div class="button-box" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
+                    <button class="tag-button" 
+                    ng-repeat="hashtag in hashtags | filter:searchValue" 
+                    ng-click="selectHashtag(hashtag.hashtagName)" 
+                    ng-class="{'selected': hashtag.selected}"
+                    draggable="true" ondragstart="drag(event)" id="{{hashtag.hashtagName}}"
+                    >{{hashtag.hashtagName}}</button>
+                </div>  
+                <button ng-click="goToUpdateHashtagView(hashtag.id)">Add or Delete Hashtags</button>   
+                <div class="list-test">
+                    <ul dnd-list="list">
+                        <li ng-repeat="item in list"
+                            dnd-draggable="item"
+                            dnd-moved="list.splice($index,1)"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected = item"
+                            ng-class="{'selected': models.selected === item}"
+                        >
+                        {{item.label}}
+                        </li>
+                    </ul>
+                </div>
+                
+
+<div class="nestedDemo row" ng-include="'nested/nested.html'"></div>
+            </div>
+        </div>
+    </div>	
+</div>
+<!-- Markup for lists inside the dropzone. It's inside a seperate template
+     because it will be used recursively. The dnd-list directive enables
+     to drop elements into the referenced array. The dnd-draggable directive
+     makes an element draggable and will transfer the object that was
+     assigned to it. If an element was dragged away, you have to remove
+     it from the original list yourself using the dnd-moved attribute -->
+     <script type="text/ng-template" id="list.html">
+        <ul dnd-list="list">
+            <li ng-repeat="item in list"
+                dnd-draggable="item"
+                dnd-effect-allowed="move"
+                dnd-moved="list.splice($index, 1)"
+                dnd-selected="models.selected = item"
+                ng-class="{selected: models.selected === item}"
+                ng-include="item.type + '.html'">
+            </li>
+        </ul>
+    </script>
+    
+    <!-- This template is responsible for rendering a container element. It uses
+         the above list template to render each container column -->
+    <script type="text/ng-template" id="container.html">
+        <div class="container-element box box-blue">
+            <h3>Container {{item.id}}</h3>
+            <div class="column" ng-repeat="list in item.columns" ng-include="'list.html'"></div>
+            <div class="clearfix"></div>
+        </div>
+    </script>
+    
+    <!-- Template for a normal list item -->
+    <script type="text/ng-template" id="item.html">
+        <div class="item">Item {{item.id}}</div>
+    </script>
+    
+    <!-- Main area with dropzones and source code -->
+    <div class="col-md-10">
+        <div class="row">
+            <div ng-repeat="(zone, list) in models.dropzones" class="col-md-6">
+                <div class="dropzone box box-yellow">
+                    <!-- The dropzone also uses the list template -->
+                    <h3>Dropzone {{zone}}</h3>
+                    <div ng-include="'list.html'"></div>
+                </div>
+            </div>
+        </div>
+    
+        <div view-source="nested"></div>
+    
+        <h2>Generated Model</h2>
+        <pre>{{modelAsJson}}</pre>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="col-md-2">
+    
+        <div class="toolbox box box-grey box-padding">
+            <h3>New Elements</h3>
+            <ul>
+                <!-- The toolbox only allows to copy objects, not move it. After a new
+                     element was created, dnd-copied is invoked and we generate the next id -->
+                <li ng-repeat="item in models.templates"
+                    dnd-draggable="item"
+                    dnd-effect-allowed="copy"
+                    dnd-copied="item.id = item.id + 1"
+                    >
+                    <button type="button" class="btn btn-default btn-lg" disabled="disabled">{{item.type}}</button>
+                </li>
+            </ul>
+        </div>
+    
+        <div ng-if="models.selected" class="box box-grey box-padding">
+            <h3>Selected</h3>
+            <strong>Type: </strong> {{models.selected.type}}<br>
+            <input type="text" ng-model="models.selected.id" class="form-control" style="margin-top: 5px" />
+        </div>
+    
+        <div class="trashcan box box-grey box-padding">
+            <!-- If you use [] as referenced list, the dropped elements will be lost -->
+            <h3>Trashcan</h3>
+            <ul dnd-list="[]">
+                <li><img src="nested/trashcan.jpg"></li>
+            </ul>
+        </div>
+    
+    </div>

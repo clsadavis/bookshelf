@@ -1,0 +1,202 @@
+@media (max-width: 1360px){
+    .home-view{
+        height: 105%;
+        width: 105%;
+    }
+
+    .log-selection{
+        position: absolute;
+        height: 4em;
+        width: 3.5em;
+        bottom: 19em;
+        left: 14em;
+        cursor: pointer;
+        /* border: solid black; */
+    }
+
+    .tbr-selection{
+        position: absolute;
+        height: 4em;
+        width: 3.5em;
+        bottom: 19em;
+        left: 20em;
+        cursor: pointer;
+        /* border: solid pink; */
+    }
+
+    .stat-selection{
+        position: absolute;
+        height: 4em;
+        width: 3.5em;
+        bottom: 19em;
+        left: 26.5em;
+        cursor: pointer;
+        /* border: solid lime; */
+    }
+
+    .learn-more{
+        background-color: var(--accent-blue-light);
+        position: absolute;
+        left: 18em;
+        bottom: 7em;
+        color: var(--white);
+        border: none;
+        padding: 1em;
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+    }
+
+
+    #home-logo{
+        width: 3.5%;
+        position: absolute;
+        left: 3%;
+        top: 4%;
+    }
+
+    .navi-stack{
+        height: 100%;
+        border-right: solid var(--panel-lines) 1px;
+        border-left: solid var(--panel-lines) 1px;
+        width: 20%;
+        text-align: center;
+        padding-bottom: 5px;
+    }
+
+    .menu-font{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--letter-accent);
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .navi-shelf{
+        height: 100%;
+        border-right: solid var(--panel-lines) 1px;
+        width: 30%;
+        text-align: center;
+    }
+
+    .drop-button{
+        background-color: var(--white);
+        color: var(--letter-accent);
+        text-transform: uppercase;
+        padding: 10px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .navi-quiz{
+        height: 100%;
+        width: 15%;
+        border-right: solid var(--panel-lines) 1px;
+        text-align: center;
+    }
+
+    .navi-spacer{
+        width: 2%;
+    }
+
+    .navi-spacer2{
+        width: 10%;
+    }
+
+    .bookshelf-main{
+        width: 99%;
+        
+    }
+
+
+    table, th, td{
+        border: solid var(--panel-lines) 1px;
+        width: 80%;
+        text-align: center;
+        padding: 5px;
+        border-collapse: collapse;
+    }
+
+    table{
+        font-size: 14px;
+    }
+
+    .table-wrap-tbr{
+        padding-left: none;
+    }
+
+
+    .shelf-top-wrap{
+        justify-content: right;  
+    }
+
+    .search-wrap{
+        width: 95%;
+    }
+    
+    .flex-only{
+        display: flex;
+       align-items: end;
+    }
+
+    .hashTable{
+        padding: 2em;
+        width: 55%;
+    }
+
+    .hashSelectFive{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .temp-div{
+        display: flex;
+        /* flex-direction: column; */
+    }
+
+    .tbr-scores{
+        display: flex;
+        flex-direction: column;
+        border: solid 1px var(--panel-lines);
+        border-radius: 5px;
+        padding: 10px;
+        margin: 1em;
+    }
+
+    .left-text{
+        text-align: right;
+    }
+
+    .right-text{
+        text-align: left;
+    }
+
+    .flower-pic{
+        height: 13em;
+        width: 13em;
+        border-radius: 5px;
+        object-fit: cover;
+        /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+    }
+
+    .quiz__inner {
+        max-width: 80%;
+        display: flex;
+        justify-content: center;
+        /* border: solid pink; */
+    }
+
+    .book-rec-cover{
+        width: 15em;
+        height: 20em;
+    }
+
+    .book-recommendation{
+        width: 50em;
+        height: 35em;
+        display: flex;
+    }
+
+   
+}

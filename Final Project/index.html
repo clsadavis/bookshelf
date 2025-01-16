@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelfMate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Dancing+Script:wght@400..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Dancing+Script:wght@400..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script>
+      function allowDrop(ev){
+			ev.preventDefault();
+	    }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+	
+      function drop(ev){
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));   
+      } 
+    </script>
+    
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <script src="./js/book.js"></script>
+    <script src="./js/shelfController.js"></script>
+    <script src="./js/updateController.js"></script>
+    <script src="./js/createController.js"></script>
+    <script src="./js/quizController.js"></script>
+    <script src="./js/tbrController.js"></script>
+    <script src="./js/resumeController.js"></script>
+    <script src="./js/addQuizBookController.js"></script>
+    <script src="./js/createTbrController.js"></script>
+    <script src="./js/updateTbrController.js"></script>
+    <link rel="stylesheet" href="./css/resume.css"></link>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./css/booksrec.css">
+    <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="stylesheet" href="./css/laptop-size-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="./js/angular-drag-and-drop-lists.js"></script>
+    <!-- <script src="./package.json"></script> -->
+     <script src="./js/hashtagController.js"></script>
+    <script src="./js/quiz.js"></script>
+</head>
+
+<body ng-app="bookshelf">
+    <div class="wrapper-books">
+        <div class="container-main-book collapse-panel">
+          <div class="top-panel-book">
+            <div class="navi-logo">
+              <h3><a href="#!home"><img src="./images/tbr-logo.png" id="home-logo"  alt=""></a></h3>
+            </div>
+            <div class="navi-stack">
+              <h3><a href="#!shelf" class="menu-font">Bookshelf</a></h3>
+            </div>
+            <div class="navi-quiz">
+              <h3><a href="#!stats" class="menu-font">Stats</a></h3>
+            </div>
+            <div class="navi-spacer"></div>
+            <div class="navi-shelf dropdown">
+              <button class="drop-button">Find Your Next Read</button>
+              <div class="drop-contents">
+                <a href="#!tbr">TBR</a>
+                <a href="#!quiz">Quiz</a>
+              </div>
+            </div>
+            <div class="navi-shelf dropdown">
+              <button class="drop-button">About</button>
+              <div class="drop-contents">
+                <a href="#!guide">History</a>
+                <a href="#!stack">Stack</a>
+                <a href="#!resume">Resume</a>
+              </div>
+            </div>
+            <div class="navi-spacer2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-main-book" class="familjen-grotesk-styling">
+        <div ng-view></div>
+      </div>
+</body>
+</html>

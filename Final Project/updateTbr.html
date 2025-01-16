@@ -1,0 +1,441 @@
+<div class="updateContainer">
+  <div class="formWrapperUpdate">
+    <div class="updateFormBox">
+      <div class="updateHeader">
+        <h1 class="baskervville-regular">Update <br />TBR Book</h1>
+        <h2>Review and update data as needed.</h2>
+        <h5 ng-bind="updateStatus"></h5>
+      </div>
+    </div>
+    <div class="form-container">
+      <form class="update-book-form" name="updateForm">
+        <!-- <div class="form-options">
+                     <span>Book ID:</span> <span
+                         ng-bind="tbrBook.id" id="tbrid"></span>
+                 </div> -->
+        <div class="form-group">
+          <label for="title"><strong> Title:</strong></label>
+          <input
+            ng-model="tbrBook.title"
+            required
+            ng-minlength="1"
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Type here"
+          />
+          <span class="warning-display" ng-if="!updateForm.title.$valid">
+            <i>1 character required</i>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="author"><strong> Author:</strong></label>
+          <input
+            ng-model="tbrBook.author"
+            required
+            ng-minlength="2"
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Type here"
+          />
+          <span class="warning-display" ng-if="!updateForm.author.$valid">
+            <i>2 characters required</i>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="releaseYear"><strong> Release Year:</strong></label>
+          <input
+            ng-model="tbrBook.releaseYear"
+            max="2030"
+            min="1000"
+            required
+            type="number"
+            id="releaseYear"
+            name="releaseYear"
+            placeholder="select"
+          />
+          <span class="warning-display" ng-if="!updateForm.releaseYear.$valid">
+            Must be between 1000 and 2030
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="bookFormat"><strong> Format:</strong></label>
+          <select ng-model="tbrBook.bookFormat" id="bookFormat">
+            <option ng-repeat="bookFormat in bookFormats">{{bookFormat}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pageCount"><strong> Page Count:</strong></label>
+          <input
+            ng-model="tbrBook.pageCount"
+            max="10000"
+            min="1"
+            required
+            type="number"
+            id="pageCount"
+            name="pageCount"
+            placeholder="select"
+          />
+          <span class="warning-display" ng-if="!updateForm.pageCount.$valid">
+            Must be between 1 and 10,000
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="audioBook"> <strong>AudioBook Available:</strong></label>
+          <select ng-model="tbrBook.audioBook" id="audioBook">
+            <option ng-repeat="audioBook in audioBooks">{{audioBook}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ageRating"><strong> Age Rating:</strong></label>
+          <select ng-model="tbrBook.ageRating" id="ageRating">
+            <option ng-repeat="ageRating in ageRatings">{{ageRating}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="seriesNumber"> <strong>Number in Series:</strong></label>
+          <input
+            ng-model="tbrBook.seriesNumber"
+            type="text"
+            id="seriesNumber"
+            name="seriesNumber"
+            placeholder="Select 0 if not applicable"
+          />
+        </div>
+        <div class="form-group">
+          <label for="keyword1"><strong> Main Keyword:</strong></label>
+          <select ng-model="tbrBook.keyword1" id="keyword1">
+            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="keyword2"><strong> Second Keyword:</strong></label>
+          <select ng-model="tbrBook.keyword2" id="keyword2">
+            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="keyword3"><strong> Third Keyword:</strong></label>
+          <select ng-model="tbrBook.keyword3" id="keyword3">
+            <option ng-repeat="keyword in keywords">{{keyword}}</option>
+          </select>
+        </div>
+        <div class="tbr-scores tooltip-wrap">
+            <div class="slider-case">
+                <label for="recScore"><strong>Rec Score:</strong> <span id="recNum" ng-bind="tbrBook.recScore"></span></label>
+                <p>How strongly do you trust the source that gave this recommendation?</p>
+                <!-- <span class="tooltiptext">Info text</span> -->
+                 <div class="slider-wrap">
+                    <div class="slider-text-scale left-text">
+                        <p><strong>Not At All</strong></p>
+                    </div>
+                    <div class="slider-div">
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="5" class="slider"  id="recScore" ng-model="tbrBook.recScore"
+                            name="recScore">
+                        </div>
+                    </div>
+                    <div class="slider-text-scale right-text">
+                        <p><strong>With My Life</strong></p>
+                    </div>
+                 </div>
+            </div>
+            <div class="slider-case">
+                <label for="keywordScore"><strong>Keyword Score:</strong>  <span id="keyNum" ng-bind="tbrBook.keywordScore"></span></label>
+                <p>How many of the keywords and hashtags do you enjoy?</p>
+                <div class="slider-wrap">
+                    <div class="slider-text-scale left-text">
+                        <p><strong>None of Them</strong></p>
+                    </div>
+                    <div class="slider-div">
+                        <div class="slidecontainer">
+                            <input ng-model="tbrBook.keywordScore" required max="5" min="1" value="3"
+                            type="range" id="keywordScore" name="keywordScore" class="slider sliderB">
+                        </div>
+                    </div>
+                    <div class="slider-text-scale right-text">
+                        <p><strong>All of Them</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-case">
+                <label for="authorScore"><strong>Author Score:</strong><span id="authNum" ng-bind="tbrBook.authorScore"></span></label>
+                <p>Are you familiar with this author?</p>
+                <div class="slider-wrap">
+                    <div class="slider-text-scale left-text">
+                        <p><strong>Unheard Of</strong></p>
+                    </div>
+                    <div class="slider-div">
+                        <div class="slidecontainer">
+                            <input ng-model="tbrBook.authorScore" required max="5" min="1"
+                            type="range" id="authorScore" name="authorScore" class="slider sliderC">
+                        </div>
+                    </div>
+                    <div class="slider-text-scale right-text">
+                        <p><strong>Well-loved Favorite</strong></p>
+                    </div>
+                </div>
+                <!-- <input ng-model="tbrBook.authorScore" required ng-minlength="1" max="5" min="0"
+                    type="number" id="authorScore" name="authorScore"> -->
+            </div>
+            <div class="slider-caseTotal">
+                <label for="totalScore"><strong>Total Score:</strong><span id="totalNum" ></span></label>
+                <span ng-model="tbrBook.totalScore">{{tbrBook.authorScore + tbrBook.keywordScore + tbrBook.recScore}}</span>
+                <!-- <input ng-model="tbrBook.totalScore" required ng-minlength="1" max="20" min="0"
+                    type="number" id="totalScore" name="totalScore">
+                <span class="warning-display" ng-show="createForm.totalScore.$touched && createForm.totalScore.$invalid" >
+                    <i>1 characters required</i>
+                </span> -->
+            </div>
+        </div>
+        <div class="button-wrap">
+          <div class="button-container">
+            <button
+              type="button"
+              class="call-to-action"
+              ng-disabled="updateForm.$invalid"
+              ng-click="updateTbrBook()"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              class="call-to-action"
+              ng-click="deleteTbrBook()"
+              ng-disabled="disableUpdate"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="call-to-action"
+              ng-click="goToTbrView()"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="updateHashTable">
+    <span>
+      Select up to 5 hashtags
+      
+    </span>
+    <div class="hashSelectFive">
+      <div class="form-hash">
+        <label for="hashtag1">1:</label>
+        <input
+          ng-model="tbrBook.hashtag1"
+          type="text"
+          id="hashtag1"
+          name="hashtag1"
+          required
+          ng-click="setHashtag1(hashtag)"
+        />
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag1.$touched && createForm.hashtag1.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <label for="hashtag2">2:</label>
+        <input
+          ng-model="tbrBook.hashtag2"
+          type="text"
+          id="hashtag2"
+          name="hashtag2"
+          required
+        />
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag2.$touched && createForm.hashtag2.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <label for="hashtag3">3:</label>
+        <input
+          ng-model="tbrBook.hashtag3"
+          type="text"
+          id="hashtag3"
+          name="hashtag3"
+          required
+        />
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag3.$touched && createForm.hashtag3.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <label for="hashtag4">4:</label>
+        <input
+          ng-model="tbrBook.hashtag4"
+          type="text"
+          id="hashtag4"
+          name="hashtag4"
+          required
+        />
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag4.$touched && createForm.hashtag4.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <label for="hashtag5">5:</label>
+        <input
+          ng-model="tbrBook.hashtag5"
+          type="text"
+          id="hashtag5"
+          name="hashtag5"
+          required
+        />
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag5.$touched && createForm.hashtag5.$invalid"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        >
+          Required
+        </span>
+      </div>
+    </div>
+    <div class="temp-div">
+      <div class="form-hash">
+        <div
+          ng-model="tbrBook.hashtag1"
+          class="hash-box"
+          id="hashtag1"
+          name="hashtag1"
+          required
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag1.$touched && createForm.hashtag1.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <div
+          ng-model="tbrBook.hashtag2"
+          class="hash-box"
+          id="hashtag2"
+          name="hashtag2"
+          required
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag2.$touched && createForm.hashtag2.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <div
+          ng-model="tbrBook.hashtag3"
+          class="hash-box"
+          id="hashtag3"
+          name="hashtag3"
+          required
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag3.$touched && createForm.hashtag3.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <div
+          ng-model="tbrBook.hashtag4"
+          class="hash-box"
+          id="hashtag4"
+          name="hashtag6"
+          required
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag4.$touched && createForm.hashtag4.$invalid"
+        >
+          Required
+        </span>
+      </div>
+      <div class="form-hash">
+        <div
+          ng-model="tbrBook.hashtag5"
+          class="hash-box"
+          id="hashtag5"
+          name="hashtag5"
+          required
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <span
+          class="warning-display"
+          ng-show="createForm.hashtag5.$touched && createForm.hashtag5.$invalid"
+        >
+          Required
+        </span>
+      </div>
+    </div>
+    <input
+        type="text"
+        placeholder="Search for hashtags..."
+        ng-model="searchValue"
+      />
+    <div
+      class="button-box"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="div1"
+    >
+      <button
+        class="tag-button"
+        ng-repeat="hashtag in hashtags | filter:searchValue"
+        ng-click="selectHashtag(hashtag.hashtagName)"
+        ng-class="{'selected': hashtag.selected}"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="{{hashtag.hashtagName}}"
+      >
+        {{hashtag.hashtagName}}
+      </button>
+    </div>
+    <button ng-click="goToUpdateHashtagView(hashtag.id)">
+      Add or Delete Hashtags
+    </button>
+    <div class="list-test">
+      <ul dnd-list="list">
+        <li
+          ng-repeat="item in list"
+          dnd-draggable="item"
+          dnd-moved="list.splice($index,1)"
+          dnd-effect-allowed="move"
+          dnd-selected="models.selected = item"
+          ng-class="{'selected': models.selected === item}"
+        >
+          {{item.label}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

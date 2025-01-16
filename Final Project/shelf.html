@@ -1,0 +1,75 @@
+
+<div class="bookshelf-main" id="shelf-scroll">
+	<div class="shelf-top">
+		<div class="shelf-head-wrap">
+			<div class="shelf-header">
+				<h1 class="baskervville-regular">Books I've Read</h1>
+					<p><i>View books you've already read and log new books as you finish them. 
+						Click on the pencil to edit an entry and to view more details about each book.</i></p>
+			</div>
+		</div>
+		<div class="flex-only">
+			<div class="search-wrap">
+				<label>Search </label><input type="text" ng-model="searchValue">
+			</div>
+			<div class="shelf-top-wrap">
+				<button  ng-click="getAllBooks()" class="action-button">Refresh</button>
+				<button ng-click="goToCreateView()" class="action-button">Add To Shelf</button>
+			</div>
+		</div>
+	</div>
+	<div class="table-wrap">
+		<table>
+			<thead >
+				<tr class="exclude-header">
+					<!-- <th>Book ID</th> -->
+					<th ng-click="orderByColumn('title')">Title <button class="table-filter">▼</button></th>
+					<th ng-click="orderByColumn('author')">Author <button class="table-filter">▼</button></th>
+					<th ng-click="orderByColumn('starRating')">Star Rating <button class="table-filter">▼</button></th>
+					<!-- <th>Publisher</th> -->
+					<th ng-click="orderByColumn('dateRead')">Date Read <button class="table-filter">▼</button></th>
+					<th ng-click="orderByColumn('releaseYear')">Release Year <button class="table-filter">▼</button></th>
+					<th>Format</th>
+					<th ng-click="orderByColumn('pageCount')">Page Count <button class="table-filter">▼</button></th>
+					<!-- <th>Audiobook Available</th> -->
+					<!-- <th>Age Rating</th>		 -->
+					<!-- <th>Number in Series</th>		 -->
+					<th colspan="3">Keywords</th>
+					<th colspan="5">Hashtags</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="book in books | filter:searchValue | orderBy:orderByValue:reverse">
+					<!-- <td>{{book.id}}</td> -->
+					<td><em>{{book.title}}</em></td>
+					<td>{{book.author}}</td>
+					<td>{{book.starRating}}</td>
+					<!-- <td>{{book.publisher}}</td> -->
+					<td>{{book.dateRead}}</td>
+					<td>{{book.releaseYear}}</td>
+					<td>{{book.bookFormat}}</td>
+					<td>{{book.pageCount}}</td>
+					<!-- <td>{{book.audioBook}}</td> -->
+					<!-- <td>{{book.ageRating}}</td> -->
+					<!-- <td>{{book.seriesNumber}}</td>		 -->
+					<td>{{book.keyword1}}</td>
+					<td>{{book.keyword2}}</td>			
+					<td>{{book.keyword3}}</td>
+					<td>{{book.hashtag1}}</td>
+					<td>{{book.hashtag2}}</td>
+					<td>{{book.hashtag3}}</td>
+					<td>{{book.hashtag4}}</td>
+					<td>{{book.hashtag5}}</td>
+					<td><button ng-click="goToUpdateView(book.id)" class="edit-button">✎</button></td>
+				</tr>
+			</tbody>		
+		</table>	
+	</div>
+</div>
+<!-- <div class="music-player">
+	<button ng-click="playMusic()">Play Song</button>
+	<div class="player" ng-show="showPlayer">
+		<audio src=""></audio>
+	</div>
+</div> -->
