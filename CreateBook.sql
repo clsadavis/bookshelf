@@ -3,6 +3,7 @@ DROP TABLE bookkeywords;
 DROP TABLE tags;
 DROP TABLE bookformat;
 DROP TABLE maturity;
+DROP TABLE hashtags;
 DROP DATABASE mybooks;
 
 CREATE DATABASE IF NOT EXISTS mybooks;
@@ -146,12 +147,6 @@ VALUES
 ('AlternateHistory','What If Old stories'),
 ('Contemporary','Modern stories');
 
-
-DROP TABLE hashtags;
-
-
-
-
 INSERT INTO books (title, author, starRating, publisher, dateRead, releaseYear, bookFormat, pageCount, audioBook, ageRating, seriesNumber, keyword1, keyword2, keyword3, hashtag1, hashtag2, hashtag3, hashtag4, hashtag5)
 VALUES
 ('Mafia Nanny','Violet Matter','5/5','Webtoons',2024,2025,'Graphic Novel',288,'No','Adult','1','Romance','Mystery','Action','Forbidden Love','Office Romance','Bad Boy','PowerImbalance','Family'),
@@ -168,22 +163,6 @@ VALUES
 ('Tropic of Squalor','Mary Karr','5/5','Harper',2022,2018,'Poetry',86,'No','Adult','n/a','Spirituality','Memoir/Autobiography','Literary','Skepticism','Visceral','Numinous','Prayer','Divine'),
 ('The Love Hypothesis','Ali Hazelwood','5/5','Berkley',2023,2021,'Fiction',384,'Yes','Adult','n/a','Romance','Contemporary','Science','Fake Relationship','Stuck Together','Grumpy Sunshine','Open Door','STEMinist'),
 ('18 Tiny Deaths: The Untold Story of the Woman Who Invented Modern Forensics','Bruce Goldfarb','2.5/5','Sourcebooks',2023,2021,'Non-Fiction',368,'No','Adult','n/a','Science','Biography','History','Crime','Forensics','Dioramas','Investigations','none');
-
-
-
-
-
-	
-
-SELECT bookId, title, author
-FROM books;
-
-SELECT bookId, title, author, starRating, publisher, dateRead, releaseYear, bookFormat, pageCount, audioBook, ageRating, seriesNumber,
-keyword1, keyword2, keyword3, hashtag1, hashtag2, hashtag3, hashtag4, hashtag5
-FROM books;
-
-SELECT hashtagName
-FROM hashtags;
 
 INSERT INTO hashtags (hashtagName, DESCRIPTION)
 VALUES
@@ -399,3 +378,13 @@ VALUES
 ('Public Health','n/a'),
 ('Media Studies','n/a'),
 ('Geography','n/a');
+
+SELECT bookId, title, author
+FROM books;
+
+SELECT bookId, title, author, starRating, publisher, dateRead, releaseYear, bookFormat, pageCount, audioBook, ageRating, seriesNumber,
+keyword1, keyword2, keyword3, hashtag1, hashtag2, hashtag3, hashtag4, hashtag5
+FROM books;
+
+SELECT hashtagName
+FROM hashtags;
