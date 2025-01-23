@@ -10,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Dancing+Script:wght@400..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Dancing+Script:wght@400..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Dancing+Script:wght@400..700&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script>
       function allowDrop(ev){
 			ev.preventDefault();
@@ -52,44 +51,48 @@
     <!-- <script src="./package.json"></script> -->
      <script src="./js/hashtagController.js"></script>
     <script src="./js/quiz.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="./js/simple.js"></script>
+
 </head>
 
-<body ng-app="bookshelf">
-    <div class="wrapper-books">
-        <div class="container-main-book collapse-panel">
-          <div class="top-panel-book">
-            <div class="navi-logo">
-              <h3><a href="#!home"><img src="./images/tbr-logo.png" id="home-logo"  alt=""></a></h3>
-            </div>
-            <div class="navi-stack">
-              <h3><a href="#!shelf" class="menu-font">Bookshelf</a></h3>
-            </div>
-            <div class="navi-quiz">
-              <h3><a href="#!stats" class="menu-font">Stats</a></h3>
-            </div>
-            <div class="navi-spacer"></div>
-            <div class="navi-shelf dropdown">
-              <button class="drop-button">Find Your Next Read</button>
-              <div class="drop-contents">
-                <a href="#!tbr">TBR</a>
-                <a href="#!quiz">Quiz</a>
-              </div>
-            </div>
-            <div class="navi-shelf dropdown">
-              <button class="drop-button">About</button>
-              <div class="drop-contents">
-                <a href="#!guide">History</a>
-                <a href="#!stack">Stack</a>
-                <a href="#!resume">Resume</a>
-              </div>
-            </div>
-            <div class="navi-spacer2"></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="container-main-book" class="familjen-grotesk-styling">
-        <div ng-view></div>
-      </div>
+<body ng-app="bookshelf">
+    <div class="home-container">
+        <div class="home-wrapper">
+            <div class="navigational">
+                <div class="nav-menu ">
+                    <div class="logo-nav">
+                        <h3><a href="#!home" class="nav-font"><span>📖</span> Home</a></h3>
+                    </div>
+                    <div class="bookshelf-nav">
+                        <h3><a href="#!shelf" class="nav-font">Bookshelf</a></h3>
+                    </div>
+                    <div class="stat-nav ">
+                        <h3><a href="#!stats" class="nav-font">Stats</a></h3>
+                    </div>
+                    <div class="tbr-nav dropdown">
+                        <button class="nav-font drop-button">Find Your Next Read</button>
+                        <div class="drop-contents">
+                            <a href="#!tbr">TBR</a>
+                            <a href="#!quiz">Quiz</a>
+                        </div>
+                    </div>
+                    <div class="about-nav dropdown">
+                        <button class="nav-font drop-button">About</button>
+                        <div class="drop-contents">
+                            <!-- <a href="#!guide">Development</a> -->
+                            <a href="#!stack">Stack</a>
+                            <a href="#!resume">Developer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="injectable">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>  
 </body>
-</html>
+</html> 
