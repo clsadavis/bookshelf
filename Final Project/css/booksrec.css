@@ -1,6 +1,7 @@
 :root{
     --green: #72B01D;
     --reseda-green: #7A8450;
+    --reseda-green-light: #90996c;
     --snow: #F7F0F0;
     --jet-black: #9f9da0;
     --white: #f2f4ff;
@@ -8,6 +9,7 @@
     --font: #39382c;
     --book-1: #ebcfb2;
     --book-2: #CBA135;
+    --book-2-light: #e6cb89;
     --book-3: #a59354;
     --shadow: #302f26;
     --letter-accent: #B28D2E;
@@ -16,12 +18,16 @@
     --book-2-lighter: #d1af59;
     --accent-blue-dark: #59656F;
     --accent-blue-light: #2660A4;
+    --accent-blue-light-lighter: #7494b9;
     --raisin-black: #2D2D34;
     --accent-green: #3B5249;
     --red: #6F1A07;
     --hot-pink: #FC60A8;
+    --hot-pink-light: #f7cbe0;
     --lavender-web: #d9ddeb;
     --font-light: #dddada;
+    --off-white: #e5ece9;
+    --rosy: #F8D9E7;
 }
 
 html{
@@ -37,114 +43,104 @@ body{
     background-color: var(--white);
 }
 
+h1{
+    color: var(--font);
+    text-transform: uppercase;
+    font-size: 3em;
+    line-height: 95%;
+}
 
-.top-panel-book{
-    width: 99%;
-    height: 6vh;
+h3{
+    color: var(--accent-blue-dark);
+}
+
+/*
+==========FONTS=========================
+*/
+
+.playfair-display-styling {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+==========HOME UPDATE STYLING=========================
+*/
+
+.navigational{
     border-bottom: solid var(--panel-lines) 1px;
+}
+
+.nav-menu{
     display: flex;
-    padding: 0.5em;
+    align-items: center;
     text-align: center;
 }
 
-.log-selection{
-    position: absolute;
-    height: 6em;
-    width: 5em;
-    bottom: 19em;
-    left: 19em;
-    cursor: pointer;
+.logo-nav:hover, .bookshelf-nav:hover,
+.stat-nav:hover, .tbr-nav:hover, .about-nav:hover,
+.drop-button:hover{
+    background-color: var(--font-light);
 }
 
-.tbr-selection{
-    position: absolute;
-    height: 6em;
-    width: 5em;
-    bottom: 19em;
-    left: 28em;
-    cursor: pointer;
-}
-
-.stat-selection{
-    position: absolute;
-    height: 6em;
-    width: 5em;
-    bottom: 19em;
-    left: 37em;
-    cursor: pointer;
-}
-
-.learn-more{
-    background-color: var(--accent-blue-light);
-    position: absolute;
-    left: 27em;
-    bottom: 5em;
-    color: var(--white);
-    border: none;
-    padding: 1em;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-}
-
-.call-to-action{
-    background-color: var(--accent-blue-light);
-    color: var(--white);
-    border: none;
-    padding: 1em;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-}
-
-.call-to-action:hover{
-    background-color: var(--accent-blue-dark);
-}
-
-.call-to-action:disabled{
-    background-color: var(--jet-black);
-}
-
-.arrow-back:disabled{
-    border: solid lime;
-}
-
-.button-wrap{
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-}
-
-
-.link-style{
-    text-decoration: none;
-    color: var(--white);
-}
-
-
-
-
-
-.menu-font{
-    text-decoration: none;
+.nav-font{
     text-transform: uppercase;
-    color: var(--letter-accent);
-    font-size: 1.25em;
-}
-
-.drop-button{
-    background-color: var(--white);
-    color: var(--letter-accent);
-    text-transform: uppercase;
-    padding: 16px;
+    text-decoration: none;
     font-size: 1.5em;
-    border: none;
-    cursor: pointer;
+    color: var(--letter-accent);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.logo-nav{
+    width: 20%;
+    border-right: 1px solid var(--panel-lines);
+    background-color: var(--white);
+    margin-bottom: 3px;
+}
+
+.bookshelf-nav{
+    width: 20%;
+    background-color: var(--white);
+    border-right: 1px solid var(--panel-lines);
+}
+
+.stat-nav{
+    border-right: 1px solid var(--panel-lines);
+    width: 20%;
+    background-color: var(--white);
+}
+
+.tbr-nav{
+    border-right: 1px solid var(--panel-lines);
+    width: 20%;
+    
+}
+
+.about-nav{
+    width: 20%;
+    
 }
 
 .dropdown{
     position: relative;
     display: inline-block;
+}
+
+.drop-button{
+    background-color: transparent;
+    color: var(--letter-accent);
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
 }
 
 .drop-contents{
@@ -173,109 +169,129 @@ body{
     display: block;
 }
 
-.navi-logo{
+/*
+==========FRONT PAGE (INJECTABLE) STYLING=========================
+*/
+
+.front-page-container{
+    background-image: url("/images/all-books.png");
+    background-color: var(--hot-pink);
+    height: 60em;
+}
+
+.front-page-wrapper{
+    display: flex;
     height: 100%;
-    width: 8%;
-    border-right: solid var(--panel-lines) 1px;
 }
 
-#home-logo{
-    width: 3.5%;
-    position: absolute;
-    left: 2.75%;
-    top: 1.75%;
+.fp-text-container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding-top: 5em;
+    padding-bottom: 5em;
+    padding-right: 3em;
+    padding-left: 3em;
+    width: 30%;
+    justify-content: right;
+    text-align: right;
 }
 
-.navi-shelf{
-    height: 100%;
-    border-right: solid var(--panel-lines) 1px;
-    width: 21%;
+.title-back{
+    text-align: right;
 }
 
-.navi-quiz{
-    height: 100%;
-    width: 9%;
-    border-right: solid var(--panel-lines) 1px;
+.title-header{
+    font-size: 8em;   
 }
 
-.navi-spacer{
-    width: 47%;
+.sub-header{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.navi-stack{
-    height: 100%;
-    border-right: solid var(--panel-lines) 1px;
-    border-left: solid var(--panel-lines) 1px;
-    width: 11%;
+.fp-button{
+    margin-top: 4em;
 }
 
-.navi-resume{
-    height: 100%;
-    width: 11%;
+.call-to-action{
+    background-color: var(--accent-blue-light);
+    color: var(--white);
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
 
-.main-book{
-    height: 100%;
-    width: 100%;
-    position: fixed;
+.call-to-action:hover{
+    background-color: var(--accent-blue-dark);
 }
 
-
-
-.page-title{
-    font-size: 9em;
-    line-height: 25%;
+.call-to-action:disabled{
+    background-color: var(--jet-black);
 }
 
-.letter-logo{
-    color: var(--letter-accent);
+.button-wrap{
+    padding: 1em;
+    display: flex;
+    justify-content: center;
 }
 
-
-
-.title-logo{
-    width: 60%;
-    position: absolute;
-    left: 20%;
-    top: 5%;
-    color: var(--font);
+.link-style{
+    text-decoration: none;
+    color: var(--white);
 }
 
+/*
+==========STACK STYLING=========================
+*/
 
-.playfair-display-styling {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.familjen-grotesk-styling {
-  font-family: "Familjen Grotesk", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.baskervville-regular {
-    font-family: "Baskervville", serif;
-    font-weight: 800;
-    font-style: normal;
-}
-  
-.baskervville-regular-italic {
-    font-family: "Baskervville", serif;
-    font-weight: 400;
-    font-style: italic;
+.stack-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 
-.montserrat-styling> {
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.stack-info-container{
+    display: flex;
+    justify-content: center;
 }
-  
+
+.client-stack, .server-stack, .other-stack{
+    padding: 1em;
+    margin: 1em;
+    text-align: left;
+    font-size: 23px;
+}
+
+.image-container{
+    width: 70%;
+    display: flex;
+}
+
+.image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.stack-image{
+    width: 80%;
+}
+
+
+
+/*
+===================================
+*/
+
+/*
+===================================
+*/
 
 .load-text{
     position: absolute; 
@@ -318,9 +334,73 @@ body{
     width: 70%;
 }
 
+.hash-header{
+    text-align: center;
+}
+
 .button-box{
     border: solid 1px var(--panel-lines);
+    border-radius: 5px;
     margin: 10px;
+    text-align: center;
+}
+
+.hash-input{
+    border: none;
+    height: 2em;
+    width: 80%;
+    border-radius: 5px;
+    background-color: var(--reseda-green);
+    text-align: center;
+    color: var(--white);
+}
+
+.hash-inputUp{
+    border: none;
+    height: 2em;
+    width: 80%;
+    border-radius: 5px;
+    background-color: var(--hot-pink-light);
+    text-align: center;
+    color: var(--font);
+}
+
+.hash-inputTbr{
+    border: none;
+    height: 2em;
+    width: 80%;
+    border-radius: 5px;
+    background-color: var(--accent-blue-light-lighter);
+    text-align: center;
+    color: var(--white);
+}
+
+.hash-inputTbrUp{
+    border: none;
+    height: 2em;
+    width: 80%;
+    border-radius: 5px;
+    background-color: var(--book-2-light);
+    text-align: center;
+    color: var(--font);
+}
+
+.hashSelectFive{
+    display: flex;
+    /* border: solid black; */
+    justify-content: center;
+}
+
+
+.search-container{
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.form-hash{
+    padding: 2px;
+    margin: 2px;
 }
 
 .tag-button{
@@ -332,14 +412,7 @@ body{
     color: var(--font);
 }
 
-h1{
-    color: var(--font);
-    text-transform: uppercase;
-    font-size: 3em;
-    line-height: 95%;
-}
-
-h2, h3{
+h2{
     color: var(--font);
     font-weight: normal;
     text-transform: none;
@@ -366,14 +439,7 @@ label, input, select{
     color: var(--white);
 }
 
-.hashSelectFive{
-    display: flex;
-}
 
-.form-hash{
-    padding: 2px;
-    margin: 2px;
-}
 
 .temp-div{
     display: flex;
@@ -413,6 +479,7 @@ tr:hover:not(.exclude-header){
 
 .bookshelf-main{
     width: 100%;
+    /* border: solid cyan; */
 }
 
 .table-wrap{
@@ -460,6 +527,7 @@ tr:hover:not(.exclude-header){
 
 .search-wrap{
     width: 85%;
+    /* border: solid lime; */
 }
 
 .flex-only{
@@ -998,12 +1066,12 @@ ul[dnd-list] li.selected {
     border-color: #d6e9c6;
 }
 
-.nestedDemo .dropzone .selected .box > h3 {
+/* .nestedDemo .dropzone .selected .box > h3 {
     background-color: #dff0d8;
     background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
     border-color: #d6e9c6;
     color: #3c763d;
-}
+} */
 
 /***************************** Element type specific styles *****************************/
 
@@ -1096,6 +1164,11 @@ ul[dnd-list] li.selected {
 .resume-header{
     display: flex;
     flex-direction: column;
+    text-align: center;
+}
+
+.res-summary, .res-skills{
+    text-align: center;
 }
 
 .socials-wrapper{
