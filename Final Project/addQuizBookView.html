@@ -4,9 +4,9 @@
 		<div class="formWrapperCreate">		
 			<div class="createForm">
                 <div>
-                    <h1 class="baskervville-regular">Shelve A Book <br>to my TBR</h1>
-                    <p>Fill out all the fields below to add a new book to your TBR shelf.</p>
-                    <p><i>Want to add a book to your Bookshelf? <a href="#!create">Click here.</a></i></p>
+                    <h1 class="playfair-display-styling">Shelve A Book <br>to my TBR</h1>
+                    <p class="sub-header">Fill out all the fields below to add a new book to your TBR shelf.</p>
+                    <p class="sub-header"><i>Want to add a book to your Bookshelf? <a href="#!create">Click here.</a></i></p>
                     <h5 ng-bind="createStatus"></h5>
                 </div>	
                 <form name="createForm">
@@ -219,45 +219,48 @@
                 </form>
 		    </div>
             <div class="hashTable">
-                <span> Select up to 5 hashtags
-                </span>
+                <div class="hash-header">
+                    <h2>Select up to 5 hashtags</h2>
+                    <p><i>Drag a tag to any of the five boxes, or click on the tag to fill in the boxes
+                            sequentially.</i></p>
+                </div>
                 <div class="hashSelectFive">
                     <div class="form-hash">
-                        <label for="hashtag1">1:</label>
+                        <!-- <label for="hashtag1">1:</label> -->
                         <input ng-model="h1" 
-                            type="text" id="hashtag1" name="hashtag1" required ng-click="setHashtag1(hashtag)">
+                            type="text" id="hashtag1" name="hashtag1" required ng-click="setHashtag1(hashtag)"  class="hash-inputTbr">
                             <span class="warning-display" ng-show="createForm.hashtag1.$touched && createForm.hashtag1.$invalid">
                                 Required
                             </span>
                     </div>
                     <div class="form-hash">
-                        <label for="hashtag2">2:</label>
+                        <!-- <label for="hashtag2">2:</label> -->
                         <input ng-model="h2" 
-                            type="text" id="hashtag2" name="hashtag2" required>
+                            type="text" id="hashtag2" name="hashtag2" required  class="hash-inputTbr">
                             <span class="warning-display" ng-show="createForm.hashtag2.$touched && createForm.hashtag2.$invalid">
                                 Required
                             </span>
                     </div>
                     <div class="form-hash">
-                        <label for="hashtag3">3:</label>
+                        <!-- <label for="hashtag3">3:</label> -->
                         <input ng-model="h3" 
-                            type="text" id="hashtag3" name="hashtag3" required>
+                            type="text" id="hashtag3" name="hashtag3" required  class="hash-inputTbr">
                             <span class="warning-display" ng-show="createForm.hashtag3.$touched && createForm.hashtag3.$invalid">
                                 Required
                             </span>
                     </div>
                     <div class="form-hash">
-                        <label for="hashtag4">4:</label>
+                        <!-- <label for="hashtag4">4:</label> -->
                         <input ng-model="h4" 
-                            type="text" id="hashtag4" name="hashtag4" required>
+                            type="text" id="hashtag4" name="hashtag4" required  class="hash-inputTbr">
                             <span class="warning-display" ng-show="createForm.hashtag4.$touched && createForm.hashtag4.$invalid">
                                 Required
                             </span>
                     </div>
                     <div class="form-hash">
-                        <label for="hashtag5">5:</label>
+                        <!-- <label for="hashtag5">5:</label> -->
                         <input ng-model="h5" 
-                            type="text" id="hashtag5" name="hashtag5" required>
+                            type="text" id="hashtag5" name="hashtag5" required  class="hash-inputTbr">
                             <span class="warning-display" 
                             ng-show="createForm.hashtag5.$touched && createForm.hashtag5.$invalid" 
                             ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -265,7 +268,7 @@
                             </span>
                     </div>
                 </div>
-                <div class="temp-div">
+                <!-- <div class="temp-div">
                     <div class="form-hash">
                         <div ng-model="tbrBook.hashtag1" class="hash-box"
                             id="hashtag1" name="hashtag1" required ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
@@ -306,9 +309,10 @@
                                 Required
                             </span>
                     </div>
+                </div> -->
+                <div class="search-container">
+                    <input type="text" placeholder="Search for hashtags..." ng-model="searchValue" class="hashSearch">
                 </div>
-                <input type="text" 
-                placeholder="Search for hashtags..." ng-model="searchValue">
                 <div class="button-box" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
                     <button class="tag-button" 
                     ng-repeat="hashtag in hashtags | filter:searchValue" 
@@ -317,8 +321,8 @@
                     draggable="true" ondragstart="drag(event)" id="{{hashtag.hashtagName}}"
                     >{{hashtag.hashtagName}}</button>
                 </div>  
-                <button ng-click="goToUpdateHashtagView(hashtag.id)">Add or Delete Hashtags</button>   
-                <div class="list-test">
+                <!-- <button ng-click="goToUpdateHashtagView(hashtag.id)">Add or Delete Hashtags</button>    -->
+                <!-- <div class="list-test">
                     <ul dnd-list="list">
                         <li ng-repeat="item in list"
                             dnd-draggable="item"
@@ -330,4 +334,8 @@
                         {{item.label}}
                         </li>
                     </ul>
-                </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
